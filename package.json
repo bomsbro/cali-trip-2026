@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pdf": "md-to-pdf --pdf-options '{\"format\":\"A4\",\"margin\":{\"top\":\"20mm\",\"bottom\":\"20mm\",\"left\":\"15mm\",\"right\":\"15mm\"},\"printBackground\":true}'",
+    "images": "node -e \"import('pdf-to-img').then(async({pdf})=>{const fs=require('fs'),path=require('path'),f=process.argv[1],d=path.join(path.dirname(f),'pages');fs.mkdirSync(d,{recursive:true});let i=1;for await(const p of await pdf(f,{scale:2})){fs.writeFileSync(path.join(d,('page_'+String(i++).padStart(2,'0')+'.png')),p);console.log('page '+(i-1));}})\" --",
+    "build": "npm run pdf -- $1 && npm run images -- ${1%.md}.pdf"
   },
   "keywords": [],
   "author": "",
