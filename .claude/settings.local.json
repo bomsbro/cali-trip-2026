@@ -25,7 +25,15 @@
       "Bash(git -C /Users/hmc/여행일정 push)",
       "WebSearch",
       "Bash(claude config list 2>&1 | head -20)",
-      "Bash(git -C /Users/hmc/여행일정 add .claude/ 미서부여행_2026.pdf && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\nPDF 및 Claude 설정 추가\n\n- 미서부여행 PDF 버전 생성 \\(md-to-pdf\\)\n- .claude 프로젝트 설정 추가\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 push)"
+      "Bash(git -C /Users/hmc/여행일정 add .claude/ 미서부여행_2026.pdf && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\nPDF 및 Claude 설정 추가\n\n- 미서부여행 PDF 버전 생성 \\(md-to-pdf\\)\n- .claude 프로젝트 설정 추가\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 push)",
+      "Bash(npx --yes pdf-img-convert 2>&1 | head -5; which convert 2>/dev/null || echo \"no imagemagick\"; which pdftoppm 2>/dev/null || echo \"no pdftoppm\")",
+      "Bash(brew list | grep -iE \"poppler|imagemagick|ghostscript\" 2>/dev/null || echo \"none found\"; which sips 2>/dev/null)",
+      "Bash(node -e \"\nconst {pdf} = require\\('pdf-to-img'\\);\nconst fs = require\\('fs'\\);\n\n\\(async \\(\\) => {\n  const doc = await pdf\\('/Users/hmc/여행일정/미서부여행_2026.pdf', {scale: 2}\\);\n  let i = 1;\n  for await \\(const image of doc\\) {\n    const outPath = '/Users/hmc/여행일정/page_' + String\\(i\\).padStart\\(2,'0'\\) + '.png';\n    fs.writeFileSync\\(outPath, image\\);\n    console.log\\('Saved:', outPath\\);\n    i++;\n  }\n  console.log\\('Total pages:', i - 1\\);\n}\\)\\(\\);\n\" 2>&1)",
+      "Bash(pnpm add pdf-to-img 2>&1)",
+      "Bash(node --input-type=module -e \"\nimport {pdf} from 'pdf-to-img';\nimport fs from 'fs';\n\nconst doc = await pdf\\('/Users/hmc/여행일정/미서부여행_2026.pdf', {scale: 2}\\);\nlet i = 1;\nfor await \\(const image of doc\\) {\n  const outPath = '/Users/hmc/여행일정/page_' + String\\(i\\).padStart\\(2,'0'\\) + '.png';\n  fs.writeFileSync\\(outPath, image\\);\n  console.log\\('Saved:', outPath\\);\n  i++;\n}\nconsole.log\\('Total pages:', i - 1\\);\n\" 2>&1)",
+      "Bash(ls -lh /Users/hmc/여행일정/page_*.png)",
+      "Bash(git -C /Users/hmc/여행일정 log --oneline -3)",
+      "Bash(git -C /Users/hmc/여행일정 add pdf_pages/ package.json pnpm-lock.yaml .claude/settings.local.json && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\nPDF 페이지별 이미지 추출 및 패키지 업데이트\n\n- pdf_pages/ 폴더에 7페이지 PNG 이미지 추가\n- pdf-to-img 패키지 의존성 추가\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 push)"
     ]
   }
 }
