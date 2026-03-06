@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which pandoc 2>/dev/null && pandoc --version | head -1 || echo \"not installed\")",
+      "Bash(npx md-to-pdf 미서부여행_2026.md 2>)",
+      "Bash(npx --yes md-to-pdf 미서부여행_2026.md 2>&1)",
+      "Bash(npx md-to-pdf 미서부여행_2026.md 2>&1)",
+      "Bash(npx puppeteer browsers install chrome 2>&)",
+      "Bash(npx --yes puppeteer browsers install chrome 2>&1)",
+      "Bash(PUPPETEER_EXECUTABLE_PATH=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" npx md-to-pdf 미서부여행_2026.md 2>&1)",
+      "Bash(npx puppeteer browsers install chrome 2>&1)",
+      "Bash(pnpm config get global-bin-dir 2>/dev/null; pnpm config get store-dir 2>/dev/null; which pnpm)",
+      "Bash(node -e \"require\\('puppeteer-core/internal/node/install.js'\\)\" 2>&1 || node -e \"const {execSync} = require\\('child_process'\\); const p = require.resolve\\('puppeteer-core/package.json'\\).replace\\('/package.json',''\\); console.log\\(p\\);\")",
+      "Bash(npx --yes @puppeteer/browsers install chrome@stable --path /Users/hmc/.cache/puppeteer 2>&1)",
+      "Bash(npx --package=@puppeteer/browsers -- npx browsers install chrome@stable --path /Users/hmc/.cache/puppeteer 2>&1)",
+      "Bash(node -e \"\nconst {install, Browser, detectBrowserPlatform} = require\\('/Users/hmc/여행일정/node_modules/.pnpm/@puppeteer+browsers@2.11.0/node_modules/@puppeteer/browsers/lib/cjs/main.js'\\);\nconst platform = detectBrowserPlatform\\(\\);\nconsole.log\\('Platform:', platform\\);\ninstall\\({browser: Browser.CHROME, buildId: '146.0.7680.31', cacheDir: '/Users/hmc/.cache/puppeteer'}\\).then\\(r => console.log\\('Installed:', r.executablePath\\)\\).catch\\(e => console.error\\(e\\)\\);\n\" 2>&)",
+      "Bash(find /Users/hmc/여행일정/node_modules -path \"*/@puppeteer/browsers\" -type d 2>/dev/null | head -3)",
+      "Bash(node -e \"\nconst {install, Browser, detectBrowserPlatform} = require\\('/Users/hmc/여행일정/node_modules/.pnpm/@puppeteer+browsers@2.13.0/node_modules/@puppeteer/browsers/lib/cjs/main.js'\\);\nconst platform = detectBrowserPlatform\\(\\);\nconsole.log\\('Platform:', platform\\);\ninstall\\({browser: Browser.CHROME, buildId: '146.0.7680.31', cacheDir: '/Users/hmc/.cache/puppeteer'}\\).then\\(r => console.log\\('Installed:', r.executablePath\\)\\).catch\\(e => console.error\\('Error:', e.message\\)\\);\n\" 2>&1)",
+      "Bash(sudo chown -R hmc:staff /Users/hmc/.cache/puppeteer 2>&1)",
+      "Bash(node -e \"\nconst {install, Browser, detectBrowserPlatform} = require\\('/Users/hmc/여행일정/node_modules/.pnpm/@puppeteer+browsers@2.13.0/node_modules/@puppeteer/browsers/lib/cjs/main.js'\\);\ninstall\\({browser: Browser.CHROME, buildId: '146.0.7680.31', cacheDir: '/Users/hmc/.cache/puppeteer'}\\).then\\(r => console.log\\('Installed:', r.executablePath\\)\\).catch\\(e => console.error\\('Error:', e.message\\)\\);\n\" 2>&1)",
+      "Bash(sudo chown -R hmc:staff /Users/hmc/.cache /Users/hmc/.npm-global /Users/hmc/.nvm 2>&1)",
+      "Bash(git -C /Users/hmc/여행일정 status)",
+      "Bash(git -C /Users/hmc/여행일정 log --oneline -5)",
+      "Bash(git -C /Users/hmc/여행일정 add .gitignore package.json pnpm-lock.yaml && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\n프로젝트 설정 추가: .gitignore, package.json, pnpm-lock\n\n- .gitignore: node_modules, .playwright-mcp 제외\n- md-to-pdf 패키지 의존성 추가 \\(PDF 변환용\\)\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 statu)",
+      "Bash(git -C /Users/hmc/여행일정 push)",
+      "WebSearch",
+      "Bash(claude config list 2>&1 | head -20)",
+      "Bash(git -C /Users/hmc/여행일정 add .claude/ 미서부여행_2026.pdf && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\nPDF 및 Claude 설정 추가\n\n- 미서부여행 PDF 버전 생성 \\(md-to-pdf\\)\n- .claude 프로젝트 설정 추가\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 push)"
+    ]
+  }
+}
