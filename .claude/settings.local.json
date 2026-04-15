@@ -33,7 +33,13 @@
       "Bash(node --input-type=module -e \"\nimport {pdf} from 'pdf-to-img';\nimport fs from 'fs';\n\nconst doc = await pdf\\('/Users/hmc/여행일정/미서부여행_2026.pdf', {scale: 2}\\);\nlet i = 1;\nfor await \\(const image of doc\\) {\n  const outPath = '/Users/hmc/여행일정/page_' + String\\(i\\).padStart\\(2,'0'\\) + '.png';\n  fs.writeFileSync\\(outPath, image\\);\n  console.log\\('Saved:', outPath\\);\n  i++;\n}\nconsole.log\\('Total pages:', i - 1\\);\n\" 2>&1)",
       "Bash(ls -lh /Users/hmc/여행일정/page_*.png)",
       "Bash(git -C /Users/hmc/여행일정 log --oneline -3)",
-      "Bash(git -C /Users/hmc/여행일정 add pdf_pages/ package.json pnpm-lock.yaml .claude/settings.local.json && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\nPDF 페이지별 이미지 추출 및 패키지 업데이트\n\n- pdf_pages/ 폴더에 7페이지 PNG 이미지 추가\n- pdf-to-img 패키지 의존성 추가\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 push)"
+      "Bash(git -C /Users/hmc/여행일정 add pdf_pages/ package.json pnpm-lock.yaml .claude/settings.local.json && git -C /Users/hmc/여행일정 commit -m \"$\\(cat <<'EOF'\nPDF 페이지별 이미지 추출 및 패키지 업데이트\n\n- pdf_pages/ 폴더에 7페이지 PNG 이미지 추가\n- pdf-to-img 패키지 의존성 추가\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git -C /Users/hmc/여행일정 push)",
+      "Bash(npx md-to-pdf:*)",
+      "Bash(node -e \"console.log\\(process.version\\)\")",
+      "Bash(node:*)",
+      "Bash(pnpm install:)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)"
     ]
   }
 }
